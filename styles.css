@@ -3,6 +3,10 @@
   src: url('fonts/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
+:root {
+  --color-primary: #1a1a1a;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +20,7 @@ html {
 body {
   font-family: 'Raleway', system-ui, sans-serif;
   background-color: #fafaf8;
-  color: #1a1a1a;
+  color: var(--color-primary);
   padding: clamp(20px, 5vw, 40px) 20px;
   height: 100%;
 }
@@ -30,7 +34,6 @@ h1 {
 
 p {
   font-size: 1rem;
-  margin-bottom: 10px;
 }
 
 .container {
@@ -40,4 +43,52 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.contact-me {
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  column-gap: 0.6rem;
+}
+
+.contact-me-link {
+  display: flex;
+  gap: 0.2rem;
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    --color-primary: #808080;
+    --underline-background-position-x: 100%;
+    --underline-background-size-x: 100%;
+  }
+}
+
+.underline {
+  background: linear-gradient(currentColor 0 0) var(--underline-background-position-x, 0) 100% / var(--underline-background-size-x, 0) 1.5px no-repeat;
+  transition: 0.3s, background-position 0s 0.3s;
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0s;
+  }
+}
+
+.icon {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  background-color: var(--color-primary);
+  mask-repeat: no-repeat;
+}
+
+.email-icon {
+  mask-image: url(./assets/email.svg);
+}
+
+.github-icon {
+  mask-image: url(./assets/github.svg);
+}
+
+.linkedin-icon {
+  mask-image: url(./assets/linkedin.svg);
 }
